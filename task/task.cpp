@@ -1,16 +1,14 @@
 ﻿#include <iostream>
+#include "Library.h"
 using std::cout;
 using std::cin;
 using std::endl;
 
 int main()
 {
-	enum Answer
-	{
-		task_1 = 1, task_2 = 2, task_3 = 3
-	};
+	srand(time(NULL));
 
-	int answer{ -1 };
+	char answer{ -1 };
 	do
 	{
 		cout << "Enter task number:: "
@@ -18,18 +16,33 @@ int main()
 			<< "\nTask 2."
 			<< "\nTask 3."
 			<< endl;
-		cin >> answer;
+		int taskChose{ 0 };
+		cin >> taskChose;
 
-		switch (answer)
+		switch (taskChose)
 		{
-		case task_1:
+		case 1:	// task_1
+		{
 			/*
 			1. Написать рекурсивную функцию нахождения степени
 			   числа.
 			*/
 
-			break;
-		case task_2:
+			cout << "Enter the base of the degree: \n"; // Введите основание степени.
+			int base_of_degree{ 0 }, exponent{ 0 }; // Основание степени, показатель степени.
+			cin >> base_of_degree;
+			cout << endl;
+
+			cout << "Enter exponent: \n"; // Введите показатель степени.
+			cin >> exponent;
+			cout << endl;
+
+			cout << base_of_degree << " in exponent " << exponent << " = "
+				<< DegreeOfNumber(base_of_degree, exponent) << endl;
+			cout << endl;
+		}
+		break;
+		case 2:	// task_2	
 			/*
 			2. Написать игру «Быки и коровы». Программа "загадывает"
 			   четырёхзначное число и играющий должен угадать его .
@@ -40,9 +53,23 @@ int main()
 			   количество сделанных пользователем попыток. В
 			   программе необходимо использовать рекурсию.
 			*/
+		{
+			const int size{ 4 };
+			int arr[size]{ -1, -1, -1, -1 };
+			FillArr(arr, size);
+			//PrintArray(arr, size);
+			cout << "Try guess the number of four digit: ";
+			int possibleNumber{ 0 };
+			cin >> possibleNumber;
+			//MatchCheck(arr, size, possibleNumber);
+			int bools{ 0 }, cows{ 0 };
+			bools = BoolsCounter(arr, size, possibleNumber);
+			//cows = CowsCounter();
 
-			break;
-		case task_3:
+
+		}
+		break;
+		case 3: // task_3		
 			/*
 			3. Дана шахматная доска размером 8х8 и шахматный конь.
 			   Программа должна запросить у пользователя координаты
