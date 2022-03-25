@@ -86,8 +86,20 @@ int main()
 			   клеток может затянуться, то рекомендуется сначала
 			   опробовать задачу на поле размером 6х6). В программе
 			   необходимо использовать рекурсию.
+
+			   https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0_%D0%BE_%D1%85%D0%BE%D0%B4%D0%B5_%D0%BA%D0%BE%D0%BD%D1%8F
+
 			*/
 
+			const int size{ 8 };
+			int arr[size][size]{ 0 };
+
+			cout << "Enter the initial coordinates of the Knight (row / column, from 0 to 7):\n";
+			int startHorsePosRow{ 0 }, startHorsePosCol{ 0 };
+			cin >> startHorsePosRow;
+			cin >> startHorsePosCol;
+			arr[startHorsePosRow][startHorsePosCol] = 1; // значение "1" в массиве, для отметки места, где конь уже ступал и больше не должен ступать.
+			PrintArr(arr, size);
 			break;
 		}
 

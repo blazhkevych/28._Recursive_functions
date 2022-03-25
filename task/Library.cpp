@@ -1,6 +1,9 @@
 ﻿#include <stdlib.h>
 #include <iostream>
+#include <iomanip>
 using std::cout;
+using std::endl;
+using std::setw;
 // Рекурсивная функция нахождения степени числа.
 long long unsigned int DegreeOfNumber(int base_of_degree, int exponent)
 {
@@ -84,7 +87,7 @@ int CowsCounter(int arr[], int size, int possibleNumber)
 	n1 = possibleNumber % 10;
 	possibleNumber = possibleNumber / 10;
 
-	for (int i = 0; i < size; i++)
+	for (int i = 0; i < size; i++) // Возможно ошибка в работе !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	{
 		if (arr[i] == n1 && i == 0 || arr[i] == n2 && i == 1 ||
 			arr[i] == n3 && i == 2 || arr[i] == n4 && i == 3) // Сколько цифр угадано и стоит на нужном месте (коровы).
@@ -108,4 +111,26 @@ void ShowPossibleNum(int possibleNumber)
 	possibleNumber = possibleNumber / 10;
 
 	cout << n1 << '\t' << n2 << '\t' << n3 << '\t' << n4 << "\n";
+}
+
+//Функция вывода двумерного массива на экран.
+void PrintArr(int arr[][8], int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++)
+		{
+			cout << setw(2) << arr[i][j];
+		}
+		cout << endl;
+	}
+}
+
+// Функция Хода конем.
+void HorseMove(int arr[][8], int size)
+{
+	int row{ 0 };
+	int col{ 0 };
+	// 3 вверх, 2 влево
+	int nextMoveRow =  
 }
