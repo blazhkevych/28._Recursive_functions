@@ -57,16 +57,22 @@ int main()
 			const int size{ 4 };
 			int arr[size]{ -1, -1, -1, -1 };
 			FillArr(arr, size);
-			//PrintArray(arr, size);
-			cout << "Try guess the number of four digit: ";
-			int possibleNumber{ 0 };
-			cin >> possibleNumber;
-			//MatchCheck(arr, size, possibleNumber);
-			int bools{ 0 }, cows{ 0 };
-			bools = BoolsCounter(arr, size, possibleNumber);
-			//cows = CowsCounter();
-
-
+			int bools{ 0 }, cows{ 0 }, attempt{ 0 };
+			cout << "\nWelcome to Bulls and Cows!\n";
+			do
+			{
+				cout << "\nTry guess the number of four digit (Enter 4 suggested digits) : ";
+				int possibleNumber{ 0 };
+				cin >> possibleNumber;
+				cout << "\n";
+				ShowPossibleNum(possibleNumber);
+				bools = BoolsCounter(arr, size, possibleNumber);
+				cout << "\nBools: " << bools << endl;
+				cows = CowsCounter(arr, size, possibleNumber);
+				cout << "\nCows: " << cows << endl;
+				attempt++;
+			} while (cows < 4);
+			cout << "Congratulations, you won on " << attempt << " try!\n";
 		}
 		break;
 		case 3: // task_3		

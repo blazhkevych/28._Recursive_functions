@@ -47,14 +47,55 @@ void PrintArray(int arr[], int size)
 		cout << arr[i]; // setw(4) - Задает ширину поля отображения для следующего элемента в потоке.
 }
 
-// Функция проверки введенного числа на совпадение с числом, загаданным компьютером.
-void MatchCheck(int arr[], int size, int possibleNumber)
-{
-
-}
-
 // Функция подсчитывает количество быков.
 int BoolsCounter(int arr[], int size, int possibleNumber)
+{
+	int boolsCounter{ 0 };
+	int n1{ 0 }, n2{ 0 }, n3{ 0 }, n4{ 0 };
+	n4 = possibleNumber % 10;
+	possibleNumber = possibleNumber / 10;
+	n3 = possibleNumber % 10;
+	possibleNumber = possibleNumber / 10;
+	n2 = possibleNumber % 10;
+	possibleNumber = possibleNumber / 10;
+	n1 = possibleNumber % 10;
+	possibleNumber = possibleNumber / 10;
+
+	//cout << "\n" << n1 << ' ' << n2 << ' ' << n3 << ' ' << n4;
+
+	for (int i = 0; i < size; i++)
+		if (arr[i] == n1 || arr[i] == n2 || arr[i] == n3 || arr[i] == n4) // Сколько цифр числа угадано (быки).
+			boolsCounter++;
+	//cout << "\nboolsCounter " << boolsCounter;
+	return boolsCounter;
+}
+
+// Функция подсчитывает количество коров.
+int CowsCounter(int arr[], int size, int possibleNumber)
+{
+	int cowsCounter{ 0 };
+	int n1{ 0 }, n2{ 0 }, n3{ 0 }, n4{ 0 };
+	n4 = possibleNumber % 10;
+	possibleNumber = possibleNumber / 10;
+	n3 = possibleNumber % 10;
+	possibleNumber = possibleNumber / 10;
+	n2 = possibleNumber % 10;
+	possibleNumber = possibleNumber / 10;
+	n1 = possibleNumber % 10;
+	possibleNumber = possibleNumber / 10;
+
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] == n1 && i == 0 || arr[i] == n2 && i == 1 ||
+			arr[i] == n3 && i == 2 || arr[i] == n4 && i == 3) // Сколько цифр угадано и стоит на нужном месте (коровы).
+			cowsCounter++;
+	}
+	//cout << "\ncowsCounter " << cowsCounter;
+	return cowsCounter;
+}
+
+// Функция вывода на экран, числа введенного пользователем, возможного варианта загаданного числа.
+void ShowPossibleNum(int possibleNumber)
 {
 	int n1{ 0 }, n2{ 0 }, n3{ 0 }, n4{ 0 };
 	n4 = possibleNumber % 10;
@@ -66,18 +107,5 @@ int BoolsCounter(int arr[], int size, int possibleNumber)
 	n1 = possibleNumber % 10;
 	possibleNumber = possibleNumber / 10;
 
-	//cout << n1 << ' ' << n2 << ' ' << n3 << ' ' << n4;
-
-	for (int i = 0; i < size; i++)
-	{
-		arr // продолжить дописывать подсчет быков, а потом и коров.
-	}
-
-	return 0;
+	cout << n1 << '\t' << n2 << '\t' << n3 << '\t' << n4 << "\n";
 }
-
-//// Функция подсчитывает количество коров.
-//int CowsCounter(int arr[], int size, int possibleNumber)
-//{
-//
-//}

@@ -13,5 +13,8 @@ void MatchCheck(int arr[], int size, int possibleNumber);
 // Функция подсчитывает количество быков.
 int BoolsCounter(int arr[], int size, int possibleNumber);
 
-//// Функция подсчитывает количество коров.
-//int CowsCounter(int arr[], int size, int possibleNumber);
+// Функция подсчитывает количество коров.
+int CowsCounter(int arr[], int size, int possibleNumber);
+
+// Функция вывода на экран, числа введенного пользователем, возможного варианта загаданного числа.
+void ShowPossibleNum(int possibleNumber);
